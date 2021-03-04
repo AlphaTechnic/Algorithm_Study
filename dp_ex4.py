@@ -1,3 +1,10 @@
+"""
+input :
+2 15
+2
+3
+"""
+
 import sys
 sys.stdin = open("input.txt", "r")
 

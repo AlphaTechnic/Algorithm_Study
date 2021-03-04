@@ -1,3 +1,11 @@
+"""
+input :
+5
+8 3 7 9 2
+3
+5 7 9
+"""
+
 import sys
 import bisect
 sys.stdin = open("input.txt", "r")

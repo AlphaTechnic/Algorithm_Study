@@ -1,3 +1,16 @@
+"""
+input :
+4
+7
+1 2 4
+1 4 6
+2 1 3
+2 3 7
+3 1 5
+3 4 4
+4 3 2
+"""
+
 import sys
 sys.stdin = open("input.txt", "r")
 input = sys.stdin.readline

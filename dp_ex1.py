@@ -1,5 +1,8 @@
+"""
+input :
+26
+"""
 import sys
-
 sys.stdin = open("input.txt", "r")
 
 N = int(input())

@@ -1,3 +1,13 @@
+"""
+input :
+5 6
+101010
+111111
+000001
+111111
+111111
+"""
+
 import sys
 from collections import deque
 sys.stdin = open("input.txt", "r")

@@ -1,3 +1,11 @@
+"""
+input :
+00110
+00011
+11111
+00000
+"""
+
 import sys
 sys.stdin = open("input.txt", "r")
 sys.setrecursionlimit(10000)

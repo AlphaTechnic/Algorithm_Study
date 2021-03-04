@@ -1,6 +1,10 @@
-import sys
-import bisect
+"""
+input :
+4 6
+19 15 10 17
+"""
 
+import sys
 sys.stdin = open("input.txt", "r")
 input = sys.stdin.readline
 
