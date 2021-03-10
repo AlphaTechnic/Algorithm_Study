@@ -18,7 +18,7 @@ sys.stdin = open("input.txt", "r")
 input = sys.stdin.readline
 
 
-def restore():
+def restore():  # origin을 이용해서 board 원상복귀
     for r in range(R):
         for c in range(C):
             board[r][c] = board_origin[r][c]
