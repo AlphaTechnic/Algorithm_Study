@@ -44,5 +44,8 @@ for k in range(1, V + 1):
 
 for r in range(1, V + 1):
     for c in range(1, V + 1):
+        if graph[r][c] == INF:
+            print(0, end=' ')
+            continue
         print(graph[r][c], end=' ')
     print()
