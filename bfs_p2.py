@@ -20,16 +20,22 @@ move = [(0, 1), (1, 0), (0, -1), (-1, 0)]
 def bfs():
     q = col.deque()
     for type, y, x in pos:
-        q.append((type, y, x))
+        q.append((type, 0, y, x))
+
     while q:
-        type, cy, cx = q.popleft()
+        type, time, cy, cx = q.popleft()
+        if time == S:
+            return
+
         for dy, dx in move:
             ny, nx = cy + dy, cx + dx
             if not 1 <= ny < N + 1: continue
             if not 1 <= nx < N + 1: continue
-            if board[ny][nx] == 0:
-                board[ny][nx] = type
-                q.append((type, ny, nx))
+            if board[ny][nx] != 0: continue
+
+            board[ny][nx] = type
+            q.append((type, time + 1, ny, nx))
+    return
 
 
 N, K = map(int, input().split())
@@ -43,3 +49,12 @@ for r in range(1, N + 1):
     for c in range(1, N + 1):
         if board[r][c] != 0:
             pos.append((board[r][c], r, c))
+pos.sort()
+
+bfs()
+
+# for r in range(1, N + 1):
+#     for c in range(1, N + 1):
+#         print(board[r][c], end=' ')
+#     print()
+print(board[Y][X])
