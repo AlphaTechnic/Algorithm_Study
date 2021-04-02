@@ -2,7 +2,7 @@
 input :
 2 4 7
 
-O(n)으로 모든 board를 탐색하는 방법은 시간초
+O(n)으로 모든 board를 탐색하는 방법은 시간초과
 """
 
 import sys
