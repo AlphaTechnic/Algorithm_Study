@@ -13,10 +13,9 @@ input = sys.stdin.readline
 
 def search_num_by_bisect(target_num):
     global N
-    if bisect.bisect_left(num_list, target_num) == N:
-        return False
-    if num_list[bisect.bisect_left(num_list, target_num)] != target_num:
-        return False
+    ind = bisect.bisect_left(num_list, target_num)
+    if ind == N: return False
+    if num_list[ind] != target_num: return False
     return True
 
 
