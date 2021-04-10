@@ -1,4 +1,7 @@
-//
-// Created by 김주호 on 2021/03/27.
-//
+#include <iostream>
 
+int main(){
+    char a = 'a';
+
+    printf("%c", a+1);
+}

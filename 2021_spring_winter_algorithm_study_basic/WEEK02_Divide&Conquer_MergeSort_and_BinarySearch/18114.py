@@ -11,32 +11,31 @@ input = sys.stdin.readline
 
 
 N, M = map(int, input().rstrip().split())
-num_dic = dict()
+nums = set()
 for num in map(int, input().split()):
-    num_dic[num] = True
+    nums.add(num)
 
 # 1개 조합
-if M in num_dic:
+if M in nums:
     print(1)
     exit()
 
 # 2개 조합
-for num in num_dic:
+for num in nums:
     if M > num:
         target = M - num
-        if target in num_dic and num != target:
+        if target in nums and num != target:
             print(1)
             exit()
 
 
 # 3개 조합
-num_dic_keys = list(num_dic.keys())
+num_list = list(nums)
 for i in range(N):
     for j in range(i+1, N):
-        if M > num_dic_keys[i] + num_dic_keys[j]:
-            target = M - (num_dic_keys[i] + num_dic_keys[j])
-            if target in num_dic and num_dic_keys[i] != target and num_dic_keys[j] != target:
-                print("!!!!!")
+        if M > num_list[i] + num_list[j]:
+            target = M - (num_list[i] + num_list[j])
+            if target in nums and num_list[i] != target and num_list[j] != target:
                 print(1)
                 exit()
 
