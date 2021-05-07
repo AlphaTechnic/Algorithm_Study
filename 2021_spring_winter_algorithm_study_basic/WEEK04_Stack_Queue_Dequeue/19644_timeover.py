@@ -31,7 +31,7 @@ def can_alive():
         # 맨 앞의 좀비 기관총 공격해봄
         zombies[0] -= attack
 
-        end = min(attack_possible_range, N)
+        end = min(attack_possible_range, len(zombies))
         if zombies[0] <= 0:  # 기관총 공격에 맨 앞 좀비 die라면, 유효 사거리 안의 나머지 좀비도 P 깎음
             for i in range(1, end):
                 zombies[i] -= attack
@@ -45,7 +45,7 @@ def can_alive():
                 return False
 
         # 좀비들 전진
-        zombies.rotate(-1)
+        zombies.popleft()
     return True
 
 
