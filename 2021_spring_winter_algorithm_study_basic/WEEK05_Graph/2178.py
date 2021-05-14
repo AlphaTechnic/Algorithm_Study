@@ -16,11 +16,6 @@ from collections import deque
 sys.stdin = open("input.txt", "r")
 input = sys.stdin.readline
 
-R, C = map(int, input().rstrip().split())
-board = []
-for _ in range(R):
-    board.append(list(map(int, input().rstrip())))
-
 visited = [[0 for _ in range(C)] for _ in range(R)]
 move = [[0, 1], [1, 0], [0, -1], [-1, 0]]
 
@@ -44,6 +39,11 @@ def bfs(s_pos):
             que.append([ny, nx])
             visited[ny][nx] += visited[cy][cx] + 1
 
+
+R, C = map(int, input().rstrip().split())
+board = []
+for _ in range(R):
+    board.append(list(map(int, input().rstrip())))
 
 bfs([0, 0])
 print(visited[R - 1][C - 1])
