@@ -12,6 +12,7 @@ output :
 
 import sys
 from collections import deque
+
 sys.stdin = open("input.txt", "r")
 input = sys.stdin.readline
 
@@ -19,25 +20,21 @@ N, L, R = map(int, input().rstrip().split())
 board = []
 for _ in range(N):
     board.append(list(map(int, input().rstrip().split())))
-
 move = [[0, 1], [1, 0], [0, -1], [-1, 0]]
-solved = [[False for _ in range(N)] for _ in range(N)]
-action_flag = False
 
 
-def union_by_bfs(S):
-    global action_flag
-    union_members = set()
+def bfs(S):
+    union_mems = set()
 
     que = deque()
-    que.append([S[0], S[1]])
-    union_members.add((S[0], S[1]))
+    que.append((S[0], S[1]))
     visited[S[0]][S[1]] = True
-    solved[S[0]][S[1]] = True
+    union_mems.add((S[0], S[1]))
 
     while len(que) != 0:
         cy, cx = que.popleft()
-        if not visited[cy][cx]: visited[cy][cx] = True
+        if not visited[cy][cx]:
+            visited[cy][cx] = True
 
         for dy, dx in move:
             ny, nx = cy + dy, cx + dx
@@ -47,44 +44,32 @@ def union_by_bfs(S):
             if visited[ny][nx]: continue
 
             if L <= abs(board[cy][cx] - board[ny][nx]) <= R:
-                que.append([ny, nx])
-                if (ny, nx) not in union_members:
-                    union_members.add((ny, nx))
+                que.append((ny, nx))
+                union_mems.add((ny, nx))
+                visited[ny][nx] = True
 
+    if len(union_mems) > 1:
+        unions.append(union_mems)
 
-    if len(union_members) != 1:
-        for set_to_change in sets_to_change:
-            for y, x in union_members:
-                if (y, x) in set_to_change:
-                    return
-        else:
-            for y, x in union_members:
-                solved[y][x] = True
-            sets_to_change.append(union_members)
-
-
-num_of_mov = 0
+cnt = 0
 while True:
-    sets_to_change = []
-    solved = [[False for _ in range(N)] for _ in range(N)]
+    unions = []
+    visited = [[False for _ in range(N)] for _ in range(N)]
     for r in range(N):
         for c in range(N):
-            if not solved[r][c]:
-                visited = [[False for _ in range(N)] for _ in range(N)]
-                union_by_bfs([r, c])
+            if not visited[r][c]:
+                bfs([r, c])
 
-    if len(sets_to_change) != 0:
-        for union_mems in sets_to_change:
+    for SET in unions:
+        tot = 0
+        for pos in SET:
+            tot += board[pos[0]][pos[1]]
+        for pos in SET:
+            board[pos[0]][pos[1]] = tot // len(SET)
 
-            tot = 0
-            for y, x in union_mems:
-                tot += board[y][x]
-            new_val = tot // len(union_mems)
-
-            for y, x in union_mems:
-                board[y][x] = new_val
-        num_of_mov += 1
+    if len(unions) != 0:
+        cnt += 1
     else:
         break
 
-print(num_of_mov)
+print(cnt)
