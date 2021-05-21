@@ -1,26 +1,40 @@
 """
-input :
-9
-0
-12345678
+input:
+18
 1
+-1
+0
+0
+0
+1
+1
+-1
+-1
 2
+-2
 0
 0
 0
 0
-32
+0
+0
+0
 
 output :
-0
+-1
 1
+0
+-1
+-1
+1
+1
+-2
 2
-12345678
 0
 """
-
 import sys
 import heapq
+
 sys.stdin = open("input.txt", "r")
 input = sys.stdin.readline
 
@@ -33,6 +47,6 @@ for _ in range(N):
         if len(data) == 0:
             print(0)
         else:
-            print(heapq.heappop(data))
+            print(heapq.heappop(data)[1])
     else:
-        heapq.heappush(data, num)
+        heapq.heappush(data, (abs(num), num))
