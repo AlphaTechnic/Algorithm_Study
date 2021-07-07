@@ -1,3 +1,11 @@
+/*
+input :
+4
+
+output :
+2
+*/
+
 #include <cstdio>
 
 int N, ANS = 0;
