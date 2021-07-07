@@ -14,7 +14,7 @@ int R, C, ANS;
 int dy[] = {0, 1, 0, -1};
 int dx[] = {1, 0, -1, 0};
 int LIMIT;
-int MAX_CNT[50][50]; // BOARD와 크기가 같은 배열 : prunning 용
+int MAX_CNT[50][50]; // BOARD와 크기가 같은 배열 : prunning 용도
 char BOARD[50][51];
 
 void dfs(int cy, int cx, int cnt){
