@@ -27,23 +27,28 @@ input = sys.stdin.readline
 
 line_len, type_num = map(int, input().rstrip().split())
 indices = [i for i in range(type_num)]
-alphabets = input().rstrip().split()
-alphabets.sort()
+ALPHABETS = input().rstrip().split()
+ALPHABETS.sort()
 aeiou_set = {'a', 'e', 'i', 'o', 'u'}
 
-for inds in list(combinations(indices, line_len)):
-    # 조건 만족 못하면 쪼까냄
+
+def is_valid():
     aeiou_num = 0
     comple_of_aeiou_num = 0
     for ind in inds:
-        if alphabets[ind] in aeiou_set:
+        if ALPHABETS[ind] in aeiou_set:
             aeiou_num += 1
         else:
             comple_of_aeiou_num += 1
-    if aeiou_num < 1: continue
-    if comple_of_aeiou_num < 2: continue
+    if aeiou_num < 1: return False
+    if comple_of_aeiou_num < 2: return False
 
-    # 출력
-    for ind in inds:
-        print(alphabets[ind], end='')
-    print()
+    return True
+
+
+for inds in list(combinations(indices, line_len)):
+    if is_valid():
+        # 출력
+        for ind in inds:
+            print(ALPHABETS[ind], end='')
+        print()
