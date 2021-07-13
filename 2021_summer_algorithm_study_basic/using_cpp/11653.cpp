@@ -20,10 +20,6 @@ bool chk[3200];
 vector<int> primes;
 int N;
 
-bool comp(int a, int b){
-    return true;
-}
-
 int main(){
     ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
     freopen("input.txt", "r", stdin);
