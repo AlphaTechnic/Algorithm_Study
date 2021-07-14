@@ -41,14 +41,15 @@ if __name__ == "__main__":
     for i in range(A + Z):
         if cntA >= 1:
             tmp = get_az(cntA - 1, cntZ)  # a가 왔을 때 경우의 수
-            if tot + tmp < K:
+            if tot + tmp >= K:
+                ans += 'a'
+                cntA -= 1
+
+            else:
                 ans += 'z'
                 cntZ -= 1
 
                 tot += tmp
-            else:
-                ans += 'a'
-                cntA -= 1
 
         else:
             ans += 'z'
