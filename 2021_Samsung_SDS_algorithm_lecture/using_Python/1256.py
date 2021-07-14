@@ -28,30 +28,29 @@ def get_az(A, Z):
     return cache[A][Z]
 
 
-A, Z, K = map(int, input().rstrip().split())
+if __name__ == "__main__":
+    A, Z, K = map(int, input().rstrip().split())
+    if get_az(A, Z) < K:
+        print(-1)
+        exit()
 
-if get_az(A, Z) < K:
-    print(-1)
-    exit()
+    # 가장 앞에 있는 문자부터 채워나감
+    tot = 0
+    cntA = A
+    cntZ = Z
+    for i in range(A + Z):
+        if cntA >= 1:
+            tmp = get_az(cntA - 1, cntZ)  # a가 왔을 때 경우의 수
+            if tot + tmp < K:
+                ans += 'z'
+                cntZ -= 1
 
+                tot += tmp
+            else:
+                ans += 'a'
+                cntA -= 1
 
-# 가장 앞에 있는 문자부터 채워나감
-tot = 0
-cntA = A
-cntZ = Z
-for i in range(A + Z):
-    if cntA >= 1:
-        tmp = get_az(cntA - 1, cntZ)  # a가 왔을 때 경우의 수
-        if tot + tmp < K:
-            ans += 'z'
-            cntZ -= 1
-
-            tot += tmp
         else:
-            ans += 'a'
-            cntA -= 1
+            ans += 'z'
 
-    else:
-        ans += 'z'
-
-print(ans)
+    print(ans)
