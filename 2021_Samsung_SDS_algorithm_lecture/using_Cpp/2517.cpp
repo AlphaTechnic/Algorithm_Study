@@ -31,14 +31,14 @@ int n, num;
 pii player[500000];
 int tr[1 << 20];
 
-int seg_sum(int node, int s, int e, int l, int r){
+int query(int node, int s, int e, int l, int r){
     if (r < s || e < l) return 0;
     if (l <= s && e <= r){
         return tr[node];
     }
 
     int mid = (s + e) / 2;
-    return seg_sum(2 * node, s, mid, l, r) + seg_sum(2 * node + 1, mid + 1, e, l, r);
+    return query(2 * node, s, mid, l, r) + query(2 * node + 1, mid + 1, e, l, r);
 }
 
 void update(int node, int s, int e, int idx, int v){
@@ -81,7 +81,7 @@ int main(){
         int cur_power = player[i].second;
         int cnt = 0;
 
-        if (cur_power > 1) cnt = seg_sum(1, 1, num, 1, cur_power - 1);
+        if (cur_power > 1) cnt = query(1, 1, num, 1, cur_power - 1);
         update(1, 1, num, cur_power, 1);
         cout << (i + 1) - cnt << "\n";
     }

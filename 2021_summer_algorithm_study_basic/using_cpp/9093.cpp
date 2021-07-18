@@ -11,7 +11,6 @@ eW tnaw ot niw eht tsrif ezirp
 
 #include <iostream>
 #include <algorithm>
-#include <string>
 using namespace std;
 
 int N;

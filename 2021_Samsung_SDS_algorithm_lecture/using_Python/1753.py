@@ -28,18 +28,18 @@ INF = 10**8
 
 def dijkstra(S):
     min_heap = []
-    distance[S] = 0
+    dist[S] = 0
     heapq.heappush(min_heap, [0, S])
 
     while len(min_heap) != 0:
-        w, cur = heapq.heappop(min_heap)
-        if distance[cur] < w: continue
+        cur_w, cur = heapq.heappop(min_heap)
+        if dist[cur] < cur_w: continue
 
         for w, nxt in graph[cur]:
-            new_cost = distance[cur] + w
-            if new_cost > distance[nxt]: continue
+            new_cost = dist[cur] + w
+            if new_cost > dist[nxt]: continue
 
-            distance[nxt] = new_cost
+            dist[nxt] = new_cost
             heapq.heappush(min_heap, [new_cost, nxt])
 
 
@@ -52,12 +52,12 @@ if __name__ == "__main__":
         a, b, w = map(int, input().rstrip().split())
         graph[a].append([w, b])
 
-    distance = [INF for _ in range(V + 1)]
+    dist = [INF for _ in range(V + 1)]
 
     dijkstra(S)
 
     for i in range(1, V + 1):
-        if distance[i] != INF:
-            print(distance[i])
+        if dist[i] != INF:
+            print(dist[i])
         else:
             print("INF")
