@@ -27,7 +27,7 @@ int N, K;
 int mid;
 ll ans;
 int tree[2 * PIV];
-int m[2 * PIV]; // sliding window로 이 전 값을 빼내야되기 때문에 정의
+int mem[2 * PIV]; // sliding window로 이 전 값을 빼내야되기 때문에 정의
 
 
 int query(int mid){
@@ -56,17 +56,17 @@ int main(){
 
     cin >> N >> K;
     for (int i = 0; i < K; i++){
-        cin >> m[i];
-        update(m[i], 1);
+        cin >> mem[i];
+        update(mem[i], 1);
     }
 
     for (int i = 0; i <= N - K; i++){
         mid = query((K + 1) / 2);
         ans += mid;
         
-        update(m[i], -1);
-        cin >> m[i + K];
-        update(m[i + K], 1);
+        update(mem[i], -1);
+        cin >> mem[i + K];
+        update(mem[i + K], 1);
     }
     cout << ans;
 
