@@ -29,7 +29,8 @@ if __name__ == "__main__":
     Ap_inv = (MOD - A + MOD) % MOD
 
     Am_inv = -1
-    if xGCD(A, MOD)[0] != 1:
+    g, x, y = xGCD(A, MOD)
+    if g != 1:
         print(Ap_inv, -1)
     else:
-        print(Ap_inv, (xGCD(A, MOD)[1] + MOD) % MOD)
+        print(Ap_inv, (x + MOD) % MOD)
