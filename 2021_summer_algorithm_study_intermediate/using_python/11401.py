@@ -27,7 +27,7 @@ if __name__ == "__main__":
     fact = [1 for _ in range(N+1)]
 
     for i in range(2, N+1):
-        fact[i] = (fact[i-1] * (i % p)) % p
+        fact[i] = (fact[i - 1] * (i % p)) % p
 
     A = fact[N]
     B = (fact[N-K] * fact[K]) % p
@@ -40,4 +40,4 @@ if __name__ == "__main__":
     = A * B^p-2 % p
     = (A % p) * (B^p-2 % p) % p
     """
-    print((A % p) * (power(B, p-2) % p) % p)
+    print((A * power(B, p-2)) % p)
