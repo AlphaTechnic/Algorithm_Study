@@ -31,7 +31,6 @@ if __name__ == "__main__":
 
     # 전처리
     # sqrt(5,000,000) < 2240
-    primes = []
     least_primes = [-1 for _ in range(5000001)]
     for i in range(2, 2240):
         for j in range(i + i, 5000001, i):
