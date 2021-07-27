@@ -29,8 +29,6 @@ if __name__ == "__main__":
     nums = list(map(int, input().rstrip().split()))
 
     cnt = 0
-    visited = [False for _ in range(N)]
-
     dfs(0, 0)
 
     # S가 0인 경우는 아무것도 안들어가는 경우도 카운트되어서 그걸 빼줘야함
