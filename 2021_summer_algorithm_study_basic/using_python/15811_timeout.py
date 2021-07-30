@@ -11,17 +11,17 @@ sys.stdin = open("input.txt", "r")
 input = sys.stdin.readline
 
 
-def calculate(string):
-    scale = 1
+def cal(string):
+    digit = 1
     tot = 0
     for i in range(len(string) - 1, -1, -1):
-        tot += to_int[string[i]] * scale
-        scale *= 10
+        tot += to_int[string[i]] * digit
+        digit *= 10
     return tot
 
 
 def correct_res():
-    return calculate(str_c) == calculate(str_a) + calculate(str_b)
+    return cal(str_c) == cal(str_a) + cal(str_b)
 
 
 def recur(dep):
