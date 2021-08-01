@@ -42,18 +42,14 @@ def dfs(s):
 
     if dfn[s] == low[s]:
         SCC_NUM += 1
-        tmp = []
         while True:
-            nxt = st.pop()
-            tmp.append(nxt)
-            scc[nxt] = SCC_NUM
-            finished[nxt] = True
+            node = st.pop()
+            finished[node] = True
+            scc[node] = SCC_NUM
 
-            if nxt == s:
+            if node == s:
                 break
 
-        tmp.sort()
-        ans.append(tmp)
 
 
 if __name__ == "__main__":
@@ -70,14 +66,19 @@ if __name__ == "__main__":
     finished = [False for _ in range(V + 1)]
     scc = [0 for _ in range(V + 1)]
     st = []
-    ans = []
     for i in range(1, V + 1):
         if finished[i]: continue
         dfs(i)
 
+    res = [[] for _ in range(V + 1)]
+    for i in range(1, V + 1):
+        res[scc[i]].append(i)
+    res.sort()
+
     print(SCC_NUM)
-    ans.sort()
-    for scc in ans:
-        for node in scc:
+    res.sort()
+    for group in res:
+        if len(group) == 0: continue
+        for node in group:
             print(node, end =' ')
         print(-1)

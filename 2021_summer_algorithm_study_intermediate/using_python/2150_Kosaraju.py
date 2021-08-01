@@ -34,8 +34,7 @@ def dfs1(s):
 
 
 def dfs2(s):
-    scc[s] = SCC_NUM;
-    tmp.append(s)
+    scc[s] = SCC_NUM
     for nxt in graph_inv[s]:
         if scc[nxt] != 0: continue
 
@@ -60,20 +59,21 @@ if __name__ == "__main__":
 
     scc = [0 for _ in range(V + 1)]
     SCC_NUM = 0
-    ans = []
     while len(st) != 0:
         p = st.pop()
         if scc[p] != 0: continue
 
         SCC_NUM += 1
-        tmp = []
         dfs2(p)
-        tmp.sort()
-        ans.append(tmp)
-    ans.sort()
+
+    res = [[] for _ in range(V + 1)]
+    for i in range(1, V + 1):
+        res[scc[i]].append(i)
+    res.sort()
 
     print(SCC_NUM)
-    for scc in ans:
-        for node in scc:
+    for group in res:
+        if group == []: continue
+        for node in group:
             print(node, end=' ')
         print(-1)
