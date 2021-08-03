@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/kimjuho/Documents/Algorithm_Study/2021_summer_study_for_SUAPC/day1_20947_kim.cpp
+iostream
+-
+string
+-
+
