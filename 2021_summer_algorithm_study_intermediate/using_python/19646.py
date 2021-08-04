@@ -55,12 +55,12 @@ def search(k):
 if __name__ == "__main__":
     N = int(input())
     lengths = list(map(int, input().rstrip().split()))
-    choices = list(map(int, input().rstrip().split()))
+    kths = list(map(int, input().rstrip().split()))
 
     for i, length in enumerate(lengths):
         update(i + 1, length)
 
-    for choice in choices:
-        k = search(choice)
-        print(k)
-        update(k, - tree[PIV + k])
+    for kth in kths:
+        num = search(kth)
+        print(num, end=' ')
+        update(num, - tree[PIV + num])
