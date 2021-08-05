@@ -21,6 +21,7 @@ def find_max_reach(ind, l_limit):
     while True:
         ind += 1
         if ind == N: break
+
         if intervals[ind][0] <= l_limit:
             max_r = max(max_r, intervals[ind][1])
         else:
