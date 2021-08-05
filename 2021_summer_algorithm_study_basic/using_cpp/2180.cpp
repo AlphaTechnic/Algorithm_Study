@@ -26,6 +26,7 @@ vector<ab> ab_vec;
 
 bool comp(ab struct1, ab struct2){
     if (struct1.a == 0) return false;
+    if (struct2.a == 0) return true;
     return struct1.b / struct1.a < struct2.b / struct2.a;
 }
 
@@ -46,5 +47,6 @@ int main(){
         tot += (((ll)struct1.a * tot) % MOD + (ll)struct1.b) % MOD;
     }
     cout << tot % MOD;
+
     return 0;
 }
