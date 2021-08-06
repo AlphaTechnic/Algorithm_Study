@@ -143,32 +143,32 @@ depend:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/2021_summer_study_for_SUAPC.dir/build.make CMakeFiles/2021_summer_study_for_SUAPC.dir/build
 .PHONY : 2021_summer_study_for_SUAPC/fast
 
-day1_20947_kim.o: day1_20947_kim.cpp.o
+day3_2696_kim.o: day3_2696_kim.cpp.o
 
-.PHONY : day1_20947_kim.o
+.PHONY : day3_2696_kim.o
 
 # target to build an object file
-day1_20947_kim.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/2021_summer_study_for_SUAPC.dir/build.make CMakeFiles/2021_summer_study_for_SUAPC.dir/day1_20947_kim.cpp.o
-.PHONY : day1_20947_kim.cpp.o
+day3_2696_kim.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2021_summer_study_for_SUAPC.dir/build.make CMakeFiles/2021_summer_study_for_SUAPC.dir/day3_2696_kim.cpp.o
+.PHONY : day3_2696_kim.cpp.o
 
-day1_20947_kim.i: day1_20947_kim.cpp.i
+day3_2696_kim.i: day3_2696_kim.cpp.i
 
-.PHONY : day1_20947_kim.i
+.PHONY : day3_2696_kim.i
 
 # target to preprocess a source file
-day1_20947_kim.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/2021_summer_study_for_SUAPC.dir/build.make CMakeFiles/2021_summer_study_for_SUAPC.dir/day1_20947_kim.cpp.i
-.PHONY : day1_20947_kim.cpp.i
+day3_2696_kim.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2021_summer_study_for_SUAPC.dir/build.make CMakeFiles/2021_summer_study_for_SUAPC.dir/day3_2696_kim.cpp.i
+.PHONY : day3_2696_kim.cpp.i
 
-day1_20947_kim.s: day1_20947_kim.cpp.s
+day3_2696_kim.s: day3_2696_kim.cpp.s
 
-.PHONY : day1_20947_kim.s
+.PHONY : day3_2696_kim.s
 
 # target to generate assembly for a file
-day1_20947_kim.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/2021_summer_study_for_SUAPC.dir/build.make CMakeFiles/2021_summer_study_for_SUAPC.dir/day1_20947_kim.cpp.s
-.PHONY : day1_20947_kim.cpp.s
+day3_2696_kim.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2021_summer_study_for_SUAPC.dir/build.make CMakeFiles/2021_summer_study_for_SUAPC.dir/day3_2696_kim.cpp.s
+.PHONY : day3_2696_kim.cpp.s
 
 # Help Target
 help:
@@ -179,9 +179,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... 2021_summer_study_for_SUAPC"
-	@echo "... day1_20947_kim.o"
-	@echo "... day1_20947_kim.i"
-	@echo "... day1_20947_kim.s"
+	@echo "... day3_2696_kim.o"
+	@echo "... day3_2696_kim.i"
+	@echo "... day3_2696_kim.s"
 .PHONY : help
 
 
