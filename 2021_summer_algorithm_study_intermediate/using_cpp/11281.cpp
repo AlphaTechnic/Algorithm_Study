@@ -61,7 +61,7 @@ void dfs(int s){
 }
 
 
-int opp(int a){
+int neg(int a){
     if (a <= N) {
         return a + N;
     }
@@ -79,8 +79,8 @@ int main(){
         int a, b; cin >> a >> b;
         if (a < 0) a = -a + N;
         if (b < 0) b = -b + N;
-        graph[opp(a)].push_back(b);
-        graph[opp(b)].push_back(a);
+        graph[neg(a)].push_back(b);
+        graph[neg(b)].push_back(a);
     }
 
     for (int i = 1; i <= 2 * N; i++){

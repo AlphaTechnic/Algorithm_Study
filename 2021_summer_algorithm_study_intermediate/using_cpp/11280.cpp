@@ -60,7 +60,7 @@ void dfs(int s){
 }
 
 
-int opp(int a){
+int neg(int a){
     if (a <= N) {
         return a + N;
     }
