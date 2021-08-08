@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/kimjuho/Documents/Algorithm_Study/2021_summer_study_for_SUAPC/day5_15591_kim.cpp" "/Users/kimjuho/Documents/Algorithm_Study/2021_summer_study_for_SUAPC/cmake-build-debug/CMakeFiles/2021_summer_study_for_SUAPC.dir/day5_15591_kim.cpp.o"
+  "/Users/kimjuho/Documents/Algorithm_Study/2021_summer_study_for_SUAPC/day7_1563_kim.cpp" "/Users/kimjuho/Documents/Algorithm_Study/2021_summer_study_for_SUAPC/cmake-build-debug/CMakeFiles/2021_summer_study_for_SUAPC.dir/day7_1563_kim.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
