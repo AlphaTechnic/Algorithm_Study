@@ -63,8 +63,6 @@ def divide_and_conquer(l, r):
 if __name__ == "__main__":
     N = int(input())
     nums = [MAX] + [int(input()) for _ in range(N)]
-    for i in range(1, N + 1):
-        TREE[PIV + i] = i
 
     for i in range(1, N + 1):
         update(i)
