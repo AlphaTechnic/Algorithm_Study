@@ -16,7 +16,7 @@ if __name__ == "__main__":
     nums = list(map(int, input().rstrip().split()))
 
     l = max(nums)
-    r = 10 ** 8 + 5
+    r = 10 ** 10 + 5
     mid_save = mid = (l + r) // 2
 
     while l <= r:
