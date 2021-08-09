@@ -43,6 +43,8 @@ if __name__ == "__main__":
         board.append(list(input().strip()))
 
     cnt = 0
+    # move의 앞부터 순회하면서 stack에 집어넣고 다시 stack의 꼭대기에서 빼기 때문에
+    # move의 맨 뒤의 원소인 dy, dx에 영향을 받은 좌표를 가장 먼저 접근하게 된다.
     move = [[1, 1], [0, 1], [-1, 1]]
     for r in range(R):
         cnt += dfs(r, 0)
