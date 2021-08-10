@@ -143,32 +143,32 @@ depend:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/2021_summer_study_for_SUAPC.dir/build.make CMakeFiles/2021_summer_study_for_SUAPC.dir/build
 .PHONY : 2021_summer_study_for_SUAPC/fast
 
-day7_1563_kim.o: day7_1563_kim.cpp.o
+day8_1725_kim.o: day8_1725_kim.cpp.o
 
-.PHONY : day7_1563_kim.o
+.PHONY : day8_1725_kim.o
 
 # target to build an object file
-day7_1563_kim.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/2021_summer_study_for_SUAPC.dir/build.make CMakeFiles/2021_summer_study_for_SUAPC.dir/day7_1563_kim.cpp.o
-.PHONY : day7_1563_kim.cpp.o
+day8_1725_kim.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2021_summer_study_for_SUAPC.dir/build.make CMakeFiles/2021_summer_study_for_SUAPC.dir/day8_1725_kim.cpp.o
+.PHONY : day8_1725_kim.cpp.o
 
-day7_1563_kim.i: day7_1563_kim.cpp.i
+day8_1725_kim.i: day8_1725_kim.cpp.i
 
-.PHONY : day7_1563_kim.i
+.PHONY : day8_1725_kim.i
 
 # target to preprocess a source file
-day7_1563_kim.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/2021_summer_study_for_SUAPC.dir/build.make CMakeFiles/2021_summer_study_for_SUAPC.dir/day7_1563_kim.cpp.i
-.PHONY : day7_1563_kim.cpp.i
+day8_1725_kim.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2021_summer_study_for_SUAPC.dir/build.make CMakeFiles/2021_summer_study_for_SUAPC.dir/day8_1725_kim.cpp.i
+.PHONY : day8_1725_kim.cpp.i
 
-day7_1563_kim.s: day7_1563_kim.cpp.s
+day8_1725_kim.s: day8_1725_kim.cpp.s
 
-.PHONY : day7_1563_kim.s
+.PHONY : day8_1725_kim.s
 
 # target to generate assembly for a file
-day7_1563_kim.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/2021_summer_study_for_SUAPC.dir/build.make CMakeFiles/2021_summer_study_for_SUAPC.dir/day7_1563_kim.cpp.s
-.PHONY : day7_1563_kim.cpp.s
+day8_1725_kim.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2021_summer_study_for_SUAPC.dir/build.make CMakeFiles/2021_summer_study_for_SUAPC.dir/day8_1725_kim.cpp.s
+.PHONY : day8_1725_kim.cpp.s
 
 # Help Target
 help:
@@ -179,9 +179,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... 2021_summer_study_for_SUAPC"
-	@echo "... day7_1563_kim.o"
-	@echo "... day7_1563_kim.i"
-	@echo "... day7_1563_kim.s"
+	@echo "... day8_1725_kim.o"
+	@echo "... day8_1725_kim.i"
+	@echo "... day8_1725_kim.s"
 .PHONY : help
 
 

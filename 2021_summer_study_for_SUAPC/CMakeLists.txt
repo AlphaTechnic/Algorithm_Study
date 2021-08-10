@@ -4,4 +4,4 @@ project(2021_summer_study_for_SUAPC)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(2021_summer_study_for_SUAPC
-        day7_1563_kim.cpp)
+        day8_1725_kim.cpp)
