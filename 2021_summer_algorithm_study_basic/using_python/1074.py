@@ -32,5 +32,5 @@ def recur(r, c, SZ):
 if __name__ == "__main__":
     N, qr, qc = map(int, input().rstrip().split())
 
-    ans = 0
+    CUBE_NUM = 0
     print(recur(0, 0, 2 ** N))

@@ -42,7 +42,7 @@ if __name__ == "__main__":
 
     cnt = 0
     l_limit = 301
-    success = True
+    possible = True
     in_ind = -1
     while True:
         if l_limit > 1130:
@@ -52,14 +52,14 @@ if __name__ == "__main__":
         # 바통을 이어받을 꽃이 있다는 의미
         out_ind, r = find_max_reach(in_ind, l_limit)
         if in_ind == out_ind:
-            success = False
+            possible = False
             break
 
         in_ind = out_ind
         cnt += 1
         l_limit = r
 
-    if success:
+    if possible:
         print(cnt)
     else:
         print(0)
