@@ -35,14 +35,17 @@ int recur(int x){
     dp[x] = 0;
     sort(sub_nums.begin(), sub_nums.end());
     sub_nums.erase(unique(sub_nums.begin(), sub_nums.end()), sub_nums.end());
-    for (int i = 0; i < sub_nums.size() && dp[x] == 0; i++){
+    for (int i = 0; i < sub_nums.size(); i++){
+        // x인 상황이 필승포지션으로 결론 났다면, 혹시 패배하는 경우가 있는지를 들여다 볼 필요가 없다.
+        if (dp[x] == 1) break;
+
         if (sub_nums[i] == 0) continue;
         if (sub_nums[i] == x) continue;
 
         // x - sub_nums[i]인 상황에서 패배하는 경우가 단 하나라도 있다면, x인 상황은 필승 포지션
         dp[x] = dp[x] | !recur(x - sub_nums[i]);
 
-        if (dp[x]) ans[x] = sub_nums[i];
+        if (dp[x] == 1) ans[x] = sub_nums[i];
     }
     return dp[x];
 }
