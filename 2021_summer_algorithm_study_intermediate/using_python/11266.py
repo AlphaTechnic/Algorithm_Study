@@ -32,9 +32,9 @@ def dfs(p, mp=-1):
             dfs(chd, p)
             low[p] = min(low[p], low[chd])
 
-            # BCC 생성
-            if dfn[p] <= low[chd]:  # 더 못 올라가는 상황
-                if mp != -1: IS_CUT[p] = True  # 루트노드가 아니면, 이 부분 단절점
+            # BCC 감지!!!
+            if dfn[p] <= low[chd]:
+                if mp != -1: CUT_ND[p] = True  # 루트노드 예외를 제외하고, 처음 BCC를 감지하게 되는 이 순간이 단절점
 
                 BCC_NUM += 1
                 while True:
@@ -44,12 +44,12 @@ def dfs(p, mp=-1):
 
         elif dfn[p] > dfn[chd]:
             # 간선의 중복방문을 막기위해 자식에서 조상으로 가는 경우만 관찰
-            # 즉 여기선 chd가 chd가 아님
+            # 즉 여기선 chd가 chd가 아님(조상임)
             low[p] = min(low[p], dfn[chd])
             ST.append([p, chd])
 
     if mp == -1 and child[p] >= 2:
-        IS_CUT[p] = True
+        CUT_ND[p] = True
 
 
 if __name__ == "__main__":
@@ -67,7 +67,7 @@ if __name__ == "__main__":
     dfn = [0 for _ in range(V + 1)]
     low = [0 for _ in range(V + 1)]
     child = [0 for _ in range(V + 1)]
-    IS_CUT = [False for _ in range(V + 1)]
+    CUT_ND = [False for _ in range(V + 1)]
     ST = []
     NODE_NUM = 0
     BCC_NUM = 0
@@ -78,7 +78,7 @@ if __name__ == "__main__":
 
     #  print ans
     ans = []
-    for i, is_true in enumerate(IS_CUT):
+    for i, is_true in enumerate(CUT_ND):
         if is_true:
             ans.append(i)
     ans.sort()
