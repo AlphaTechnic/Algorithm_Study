@@ -17,7 +17,6 @@ output :
 6 6
 """
 import sys
-
 sys.stdin = open("input.txt", "r")
 input = sys.stdin.readline
 sys.setrecursionlimit(10 ** 8)
