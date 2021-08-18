@@ -22,10 +22,6 @@ def ccw(A, B, C):
     return (B[0] - A[0]) * (C[1] - B[1]) - (B[1] - A[1]) * (C[0] - B[0])
 
 
-def disjoint(a, b, c, d):
-    return max(a, b) < min(c, d) or min(a, b) > max(c, d)
-
-
 def monotone_chain(points):
     points.sort()
 
