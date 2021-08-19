@@ -47,10 +47,17 @@ ll cross (const Point &A, const Point &B, const Point &C){
     return cross(B - A, C - B);
 }
 
+bool disjoint(ll s, ll e, ll l, ll r){
+    return max(s, e) < min(l, r) || min(s, e) > max(l, r);
+}
+
 bool intersect (Point A, Point B, Point C, Point D){
     ll ab = cross(A, B, C) * cross(A, B, D);
     ll cd = cross(C, D, A) * cross(C, D, B);
-    return ab < 0 && cd < 0;
+    if (ab == 0 && cd == 0){
+        return !disjoint(A.x, B.x, C.x, D.x) && !disjoint(A.y, B.y, C.y, D.y);
+    }
+    return ab <= 0 && cd <= 0;
 }
 // 전역 변수 선언
 Point A, B, C, D;
