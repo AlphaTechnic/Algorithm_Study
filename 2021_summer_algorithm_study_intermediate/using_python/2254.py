@@ -49,20 +49,12 @@ def monotone_chain(points):
     return lower[:-1] + upper[:-1]
 
 
-def tytx_in_convex_hull(convex_hull):
+def p_in_convex_hull(convex_hull, p):
     if len(convex_hull) <= 2: return False
 
-    ind = 0
-    chk_val = -1
-    while True:
-        if ind == 0:
-            chk_val = ccw((ty, tx), convex_hull[ind - 1], convex_hull[ind])
-        else:
-            if ccw((ty, tx), convex_hull[ind - 1], convex_hull[ind]) != chk_val:
-                return False
-        ind += 1
-        if ind == len(convex_hull):
-            break
+    for i in range(len(convex_hull)):
+        if ccw(p, convex_hull[i - 1], convex_hull[i]) < 0:
+            return False
     return True
 
 
@@ -76,7 +68,7 @@ if __name__ == "__main__":
     cnt = 0
     while True:
         convex_hull = monotone_chain(points)
-        if not tytx_in_convex_hull(convex_hull): break
+        if not p_in_convex_hull(convex_hull, (ty, tx)): break
         points = list(set(points) - set(convex_hull))
 
         cnt += 1
