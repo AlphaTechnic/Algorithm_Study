@@ -64,7 +64,6 @@ if __name__ == "__main__":
         graph[b].append((c, a))
         edges.append((c, a, b))
 
-
     parent = [-1 for _ in range(V + 1)]
     height = [0 for _ in range(V + 1)]
     min_val = 0
