@@ -32,7 +32,7 @@ def union(a, b):
 
     if a == b: return False
 
-    if a < b: a, b = b, a
+    if height[a] < height[b]: a, b = b, a
     parent[b] = a
 
     if height[a] == height[b]:
