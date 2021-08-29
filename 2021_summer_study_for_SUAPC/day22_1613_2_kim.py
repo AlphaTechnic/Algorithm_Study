@@ -17,9 +17,9 @@ output :
 1
 """
 import sys
+
 sys.stdin = open("input.txt", "r")
 input = sys.stdin.readline
-
 
 if __name__ == "__main__":
     V, E = map(int, input().rstrip().split())
@@ -47,4 +47,3 @@ if __name__ == "__main__":
             print(1)
         else:
             print(0)
-
