@@ -25,13 +25,13 @@ def recur(ind, tot):
             return 0
     if not 0 <= tot <= 20:
         return 0
-    if (ind, tot) in dp:
-        return dp[(ind, tot)]
+    if dp[ind][tot]:
+        return dp[ind][tot]
 
     a = recur(ind + 1, tot + nums[ind])
     b = recur(ind + 1, tot - nums[ind])
-    dp[(ind, tot)] = a + b
-    return dp[(ind, tot)]
+    dp[ind][tot] = a + b
+    return dp[ind][tot]
 
 
 if __name__ == "__main__":
@@ -40,6 +40,6 @@ if __name__ == "__main__":
     K = nums[-1]
     nums.pop()
 
-    # dp[(ind, tot)] : ind가 처리되었을 때(뒤의 ind 부터 처리해 감), 합이 tot인 경우의 수
-    dp = dict()
+    # dp[(ind, tot)] : ind가 처리되었을 때(뒤의 ind 부터 처리해 감), 합이 tot인 경우의 수`
+    dp = [[0 for _ in range(21)] for _ in range(101)]
     print(recur(1, nums[0]))
