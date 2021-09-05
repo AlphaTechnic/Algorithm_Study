@@ -40,6 +40,6 @@ if __name__ == "__main__":
     K = nums[-1]
     nums.pop()
 
-    # dp[(ind, tot)] : ind가 처리되었을 때(뒤의 ind 부터 처리해 감), 합이 tot인 경우의 수`
+    # dp[ind][tot] : ind가 처리되었을 때(뒤의 ind 부터 처리해 감), 합이 tot인 경우의 수`
     dp = [[0 for _ in range(21)] for _ in range(101)]
     print(recur(1, nums[0]))
