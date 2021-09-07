@@ -31,7 +31,7 @@ if __name__ == "__main__":
             graph[i] = list()
 
         indeg = [0 for _ in range(V + 1)]
-        cummulative_costs = [ele for ele in costs]
+        cumulative_costs = [ele for ele in costs]
         for _ in range(E):
             a, b = map(int, input().rstrip().split())
             graph[a].append(b)
@@ -48,9 +48,9 @@ if __name__ == "__main__":
         while que:
             cur = que.popleft()
             for nxt in graph[cur]:
-                cummulative_costs[nxt] = max(cummulative_costs[nxt], cummulative_costs[cur] + costs[nxt])
+                cumulative_costs[nxt] = max(cumulative_costs[nxt], cumulative_costs[cur] + costs[nxt])
                 indeg[nxt] -= 1
                 if indeg[nxt] == 0:
                     que.append(nxt)
 
-        print(cummulative_costs[TAR])
+        print(cumulative_costs[TAR])
