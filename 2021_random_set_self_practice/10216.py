@@ -41,6 +41,10 @@ def union(a, b):
     return True
 
 
+def dist_square(pos1, pos2):
+    return (pos2[0] - pos1[0]) ** 2 + (pos2[1] - pos1[1]) ** 2
+
+
 if __name__ == "__main__":
     T = int(input())
     for _ in range(T):
@@ -48,19 +52,15 @@ if __name__ == "__main__":
         parent = [-1 for _ in range(V)]
         height = [0 for _ in range(V)]
 
-        pos_x = list()
-        pos_y = list()
-        rads = list()
+        poses = list()
         for i in range(V):
             y, x, r = map(int, input().rstrip().split())
-            pos_x.append(x)
-            pos_y.append(y)
-            rads.append(r)
+            poses.append((y, x, r))
 
         g_cnt = V
         for i in range(V):
-            for j in range(i):
-                if (pos_x[i] - pos_x[j]) ** 2 + (pos_y[i] - pos_y[j]) ** 2 <= (rads[i] + rads[j]) ** 2:
+            for j in range(i + 1, V):
+                if dist_square(poses[i], poses[j]) <= (poses[i][2] + poses[j][2]) ** 2:
                     if union(i, j):
                         g_cnt -= 1
         print(g_cnt)
