@@ -124,10 +124,6 @@ def p_in_convex_hull(convex_hull, p):
     return True
 
 
-def disjoint(a, b, c, d):
-    return max(a, b) < min(c, d) or min(a, b) > max(c, d)
-
-
 def intersect(p1, p2, q1, q2):
     AB2CD = ccw(p1, p2, q1) * ccw(p1, p2, q2)
     CD2AB = ccw(q1, q2, p1) * ccw(q1, q2, p2)
