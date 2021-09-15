@@ -6,6 +6,7 @@ output :
 24
 """
 import sys
+
 sys.stdin = open("input.txt", "r")
 input = sys.stdin.readline
 MAX = 10 ** 6
@@ -13,18 +14,29 @@ MAX = 10 ** 6
 
 def get_factors(N):
     facts = set()
-    while N != 1:
-        facts.add(least_prime_factor[N])
-        N = N // least_prime_factor[N]
+    for i in range(len(primes)):
+        while N % primes[i] == 0:
+            facts.add(primes[i])
+            N //= primes[i]
+
+    if N != 1:
+        facts.add(N)
+
     return list(facts)
 
 
 if __name__ == "__main__":
-    least_prime_factor = [i for i in range(MAX + 1)]
+    # 소수 전처리
+    is_prime = [True for _ in range(MAX + 1)]
     for i in range(2, MAX + 1):
         for j in range(i + i, MAX + 1, i):
-            if least_prime_factor[j] != j: continue
-            least_prime_factor[j] = i
+            if is_prime[j] is False: continue
+            is_prime[j] = False
+
+    primes = []
+    for i in range(2, len(is_prime)):
+        if is_prime[i]:
+            primes.append(i)
 
     N = int(input())
     facts = get_factors(N)
@@ -36,9 +48,3 @@ if __name__ == "__main__":
     for fact in facts:
         tmp *= (fact - 1)
     print(tmp * (N // fact_mul))
-
-
-
-
-
-
