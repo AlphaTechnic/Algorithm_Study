@@ -17,6 +17,7 @@ Poor KCM
 """
 import sys
 from collections import deque
+from collections import defaultdict
 
 sys.stdin = open("input.txt", "r")
 
@@ -32,19 +33,18 @@ def bfs():
 
     while que:
         cur_nd, cur_c, cur_t = que.popleft()
-        if dp[cur_nd][cur_c] < cur_t:  # 이미 업뎃 완료
+        if dp[(cur_nd, cur_c)] < cur_t:
             continue
 
         for nxt_nd, nxt_c, nxt_t in graph[cur_nd]:
             new_c = cur_c + nxt_c
             new_t = cur_t + nxt_t
-            if new_c > M: continue  # 조건에 안 맞아서 짤
-            if dp[nxt_nd][new_c] <= new_t: continue  # 업데할 가치가 없어서 짤
+            if new_c > M: continue
+            if dp[(nxt_nd, new_c)] <= new_t: continue
 
-            # 업데이트
             for i in range(new_c, M + 1):
-                if dp[nxt_nd][i] > new_t:
-                    dp[nxt_nd][i] = new_t
+                if dp[(nxt_nd, i)] > new_t:
+                    dp[(nxt_nd, i)] = new_t
                 else:
                     break
             que.append((nxt_nd, new_c, new_t))
@@ -63,11 +63,11 @@ if __name__ == "__main__":
             a, b, c, t = map(int, input().rstrip().split())
             graph[a].append((b, c, t))
 
-        dp = [[MAX for _ in range(M + 1)] for _ in range(N + 1)]
-        dp[1][0] = 0
+        dp = defaultdict(lambda: MAX)
+        dp[(1, 0)] = 0
         bfs()
 
-        if dp[N][M] < MAX:
-            print(dp[N][M])
+        if dp[(N, M)] < MAX:
+            print(dp[(N, M)])
         else:
             print("Poor KCM")
