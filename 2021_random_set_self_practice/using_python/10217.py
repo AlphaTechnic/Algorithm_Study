@@ -25,7 +25,7 @@ input = sys.stdin.readline
 MAX = 10 ** 9
 
 
-def bfs():
+def dijkstra():
     global M
     que = deque()
     que.append((1, 0, 0))
@@ -65,7 +65,7 @@ if __name__ == "__main__":
 
         dp = [[MAX for _ in range(M + 1)] for _ in range(N + 1)]
         dp[1][0] = 0
-        bfs()
+        dijkstra()
 
         if dp[N][M] < MAX:
             print(dp[N][M])
