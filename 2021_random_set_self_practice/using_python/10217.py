@@ -39,9 +39,11 @@ def dijkstra():
             new_c = cur_c + nxt_c
             new_t = cur_t + nxt_t
             if new_c > M: continue  # 조건에 안 맞아서 짤
-            if dp[nxt_nd][new_c] <= new_t: continue  # 업데할 가치가 없어서 짤
+            if dp[nxt_nd][new_c] <= new_t: continue  # 업뎃할 가치가 없어서 짤
 
             # 업데이트
+            # new_c 이상의 cost라면, new_t 정도 들여서 갈 수 있음
+            # cost를 계속 올리다보면 더 저렴한 time에 갈 수 있는 방법이 나옴
             for i in range(new_c, M + 1):
                 if dp[nxt_nd][i] > new_t:
                     dp[nxt_nd][i] = new_t
