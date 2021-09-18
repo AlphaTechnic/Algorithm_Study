@@ -51,6 +51,7 @@ if __name__ == "__main__":
         N, P, ME, Q = map(int, input().rstrip().split())
 
         teams = []
+        # 인덱스 관리를 위해 항상 1등인 dummy object를 하나 만듦
         dummy_obj = TeamScore(0)
         dummy_obj.tot = 10 ** 9
         teams.append(dummy_obj)
