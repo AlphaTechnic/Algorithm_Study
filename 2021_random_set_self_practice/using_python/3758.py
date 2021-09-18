@@ -25,6 +25,7 @@ output :
 """
 import sys
 from collections import defaultdict
+
 sys.stdin = open("input.txt", "r")
 input = sys.stdin.readline
 
@@ -59,7 +60,6 @@ if __name__ == "__main__":
             obj = TeamScore(i)
             teams.append(obj)
 
-        res = []
         for i in range(1, Q + 1):
             pk, p, score = map(int, input().rstrip().split())
             teams[pk].feed_score(p, score, i)
