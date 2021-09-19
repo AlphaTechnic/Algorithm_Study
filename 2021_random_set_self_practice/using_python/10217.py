@@ -31,13 +31,13 @@ def dijkstra():
     que.append((1, 0, 0))
 
     while que:
-        cur_nd, cur_c, cur_t = que.popleft()
-        if dp[cur_nd][cur_c] < cur_t:  # 이미 업뎃 완료
+        cur_nd, cumulative_c, cumulative_t = que.popleft()
+        if dp[cur_nd][cumulative_c] < cumulative_t:  # 이미 업뎃 완료
             continue
 
         for nxt_nd, nxt_c, nxt_t in graph[cur_nd]:
-            new_c = cur_c + nxt_c
-            new_t = cur_t + nxt_t
+            new_c = cumulative_c + nxt_c
+            new_t = cumulative_t + nxt_t
             if new_c > M: continue  # 조건에 안 맞아서 짤
             if dp[nxt_nd][new_c] <= new_t: continue  # 업뎃할 가치가 없어서 짤
 
