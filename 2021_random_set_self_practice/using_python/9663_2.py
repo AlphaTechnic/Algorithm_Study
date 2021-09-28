@@ -33,18 +33,18 @@ def is_used(r, c):
     return col_used[c] or rd_used[r + c] or ld_used[r - c + (N - 1)]
 
 
-def recur(n):
+def recur(r):
     global N
-    if n == N:
+    if r == N:
         return 1
 
     cnt = 0
     for i in range(N):
-        if is_used(n, i): continue
+        if is_used(r, i): continue
 
-        mark(n, i)
-        cnt += recur(n + 1)
-        unmark(n, i)
+        mark(r, i)
+        cnt += recur(r + 1)
+        unmark(r, i)
 
     return cnt
 
