@@ -42,7 +42,7 @@ def bfs(k, v):
         cv, cc = que.popleft()
         for nv, nc in graph[cv]:
             if nc < k: continue
-            if vis[nv] != MAX: continue
+            if vis[nv] != MAX: continue  # pruning
 
             que.append((nv, nc))
             vis[nv] = min(vis[cv], nc)
