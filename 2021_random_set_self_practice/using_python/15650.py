@@ -6,22 +6,17 @@ output :
 1 2
 1 3
 1 4
-2 1
 2 3
 2 4
-3 1
-3 2
 3 4
-4 1
-4 2
-4 3
 """
 import sys
+
 sys.stdin = open("input.txt", "r")
 input = sys.stdin.readline
 
 
-def recur(seq):
+def recur(idx, seq):
     global N, M
     if len(seq) == M:
         for num in seq:
@@ -29,21 +24,14 @@ def recur(seq):
         print()
         return
 
-    for i in range(1, N + 1):
-        if vis[i]: continue
-
+    for i in range(idx, N + 1):
         seq.append(i)
-        vis[i] = True
-
-        recur(seq)
-
+        recur(i + 1, seq)
         seq.pop()
-        vis[i] = False
 
 
 if __name__ == "__main__":
     N, M = map(int, input().rstrip().split())
 
     ans = []
-    vis = [False for _ in range(N + 1)]
-    recur([])
+    recur(1, [])
