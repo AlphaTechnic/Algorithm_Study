@@ -63,10 +63,8 @@ def mk_dot():
             if len(poses) >= 4:
                 to_dot(poses)
                 flag = True
-    if flag:
-        return True
-    else:
-        return False
+
+    return True if flag else False
 
 
 def fall_down():
