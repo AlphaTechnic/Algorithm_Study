@@ -84,10 +84,7 @@ if __name__ == "__main__":
     bd = [list(input().rstrip()) for _ in range(12)]
 
     cnt = 0
-    while True:
-        if mk_dot():
-            fall_down()
-            cnt += 1
-        else:
-            break
+    while mk_dot():
+        fall_down()
+        cnt += 1
     print(cnt)
