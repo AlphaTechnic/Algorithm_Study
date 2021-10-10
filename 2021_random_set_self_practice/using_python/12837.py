@@ -15,7 +15,8 @@ output :
 import sys
 sys.stdin = open("input.txt", 'r')
 input = sys.stdin.readline
-PIV = -1
+PIV = 1 << 20
+TREE = [0 for _ in range(2 * PIV)]
 
 
 def update(idx, x):
@@ -46,8 +47,6 @@ def query(l, r):
 
 if __name__ == "__main__":
     N, Q = map(int, input().rstrip().split())
-    PIV = N
-    TREE = [0 for _ in range(4 * PIV)]
 
     for _ in range(Q):
         t, a, b = map(int, input().rstrip().split())
