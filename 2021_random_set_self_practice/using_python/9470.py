@@ -33,10 +33,10 @@ def bfs(ss):
         for nxt in graph[cur]:
             if vis[nxt] > vis[cur]: continue
 
-            if vis[nxt] < vis[cur]:
+            if vis[nxt] < vis[cur]:  # 갱신
                 vis[nxt] = vis[cur]
                 que.append(nxt)
-            elif vis[nxt] == vis[cur]:
+            elif vis[nxt] == vis[cur]:  # mxv again
                 vis[nxt] = vis[cur] + 1
             mxv = max(mxv, vis[nxt])
     return mxv
