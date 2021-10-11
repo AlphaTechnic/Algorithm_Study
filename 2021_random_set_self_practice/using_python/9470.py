@@ -24,21 +24,22 @@ input = sys.stdin.readline
 
 def bfs(ss):
     que = deque(ss)
-    mxv = 1
-
+    value = [0 for _ in range(V + 1)]
     for s in ss:
-        vis[s] = 1
+        value[s] = 1
+
+    mxv = 1
     while que:
         cur = que.popleft()
         for nxt in graph[cur]:
-            if vis[nxt] > vis[cur]: continue
+            if value[nxt] > value[cur]: continue
 
-            if vis[nxt] < vis[cur]:  # 갱신
-                vis[nxt] = vis[cur]
+            if value[nxt] < value[cur]:  # 새로운 mxv가 나오면 갱신
+                value[nxt] = value[cur]
                 que.append(nxt)
-            elif vis[nxt] == vis[cur]:  # mxv again
-                vis[nxt] = vis[cur] + 1
-            mxv = max(mxv, vis[nxt])
+            elif value[nxt] == value[cur]:  # mxv가 재등장한거면, nxt는 숫자 하나 키움
+                value[nxt] = value[cur] + 1
+            mxv = max(mxv, value[nxt])
     return mxv
 
 
@@ -47,12 +48,11 @@ if __name__ == "__main__":
     for _ in range(T):
         Q, V, E = map(int, input().rstrip().split())
         graph = defaultdict(list)
-        indegs = [0 for _ in range(V + 1)]
+        indeg = [0 for _ in range(V + 1)]
         for _ in range(E):
             a, b = map(int, input().rstrip().split())
             graph[a].append(b)
-            indegs[b] += 1
+            indeg[b] += 1
 
-        ss = [nd for nd, indeg in enumerate(indegs[1:], start=1) if indeg == 0]
-        vis = [0 for _ in range(V + 1)]
+        ss = [nd for nd, dg in enumerate(indeg[1:], start=1) if dg == 0]
         print(Q, bfs(ss))
