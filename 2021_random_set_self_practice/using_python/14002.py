@@ -5,6 +5,7 @@ input :
 
 output :
 4
+10 20 30 50
 """
 import sys
 from collections import deque
