@@ -1,8 +1,14 @@
 """
 input :
+5
+***#*
+*.!.*
+*!.!*
+*.!.*
+*#***
 
 output :
-
+2
 """
 from collections import deque
 import sys
@@ -20,24 +26,25 @@ def bfs(sy, sx):
         que.append((sy, sx, dir))
         vis[sy][sx][dir] = 1
     while que:
-        cy_save, cx_save, cdir_save = cy, cx, cdir = que.popleft()
+        cy, cx, cdir = que.popleft()
         dy, dx = DIR[cdir]
+        ny, nx = cy, cx
         while True:
-            cy, cx = cy + dy, cx + dx
-            if not (0 <= cy < R and 0 <= cx < C) or bd[cy][cx] == '*':
+            ny, nx = ny + dy, nx + dx
+            if not (0 <= ny < R and 0 <= nx < C) or bd[ny][nx] == '*':
                 break
-            if bd[cy][cx] == '!':
-                if not vis[cy][cx][cdir]:
-                    que.append((cy, cx, cdir))
-                    vis[cy][cx][cdir] = vis[cy_save][cx_save][cdir_save]
-                if not vis[cy][cx][(cdir + 1) % 4]:
-                    que.append((cy, cx, (cdir + 1) % 4))
-                    vis[cy][cx][(cdir + 1) % 4] = vis[cy_save][cx_save][cdir_save] + 1
-                if not vis[cy][cx][(cdir - 1) % 4]:
-                    que.append((cy, cx, (cdir - 1) % 4))
-                    vis[cy][cx][(cdir - 1) % 4] = vis[cy_save][cx_save][cdir_save] + 1
-            elif bd[cy][cx] == '#':
-                return vis[cy_save][cx_save][cdir_save] - 1
+            if bd[ny][nx] == '!':
+                if not vis[ny][nx][cdir]:
+                    que.append((ny, nx, cdir))
+                    vis[ny][nx][cdir] = vis[cy][cx][cdir]
+                if not vis[ny][nx][(cdir + 1) % 4]:
+                    que.append((ny, nx, (cdir + 1) % 4))
+                    vis[ny][nx][(cdir + 1) % 4] = vis[cy][cx][cdir] + 1
+                if not vis[ny][nx][(cdir - 1) % 4]:
+                    que.append((ny, nx, (cdir - 1) % 4))
+                    vis[ny][nx][(cdir - 1) % 4] = vis[cy][cx][cdir] + 1
+            elif bd[ny][nx] == '#':
+                return vis[cy][cx][cdir] - 1
 
 
 if __name__ == "__main__":
