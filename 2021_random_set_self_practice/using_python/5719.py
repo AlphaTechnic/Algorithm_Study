@@ -98,7 +98,4 @@ if __name__ == "__main__":
         dist = [INF for _ in range(V)]
         dijkstra2(START)
 
-        if dist[END] == INF:
-            print(-1)
-        else:
-            print(dist[END])
+        print(dist[END]) if dist[END] != INF else print(-1)
