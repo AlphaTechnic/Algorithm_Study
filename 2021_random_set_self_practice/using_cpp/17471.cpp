@@ -102,7 +102,7 @@ int main() {
 
     // CC가 1개라면? => 모든 양분할 조합의 경우를 고려 (brute force)
     int mnv = 1000000000;
-    for (int i = 1; i < (1 << N) - 1; i++) {
+    for (int i = 1; i < (1 << N) / 2; i++) {
         memset(grpA, false, sizeof(grpA));
         int vidx = 1;
         int combi = i;
