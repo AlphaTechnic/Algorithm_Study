@@ -54,7 +54,7 @@ if __name__ == "__main__":
     for idx in range(1, N + 1):
         a, b, y = map(int, input().rstrip().split())
         interval.append(Interval(a, b, y, idx))
-    interval.sort(key=lambda x: x.a)
+    interval.sort(key=lambda x: x.x1)
 
     # for obj in interval:
     #     print(obj.a, obj.b, obj.idx)
