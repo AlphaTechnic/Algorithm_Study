@@ -34,10 +34,6 @@ if __name__ == "__main__":
                 dist_chd[a][b] = min(dist_chd[a][b], dist_chd[a][k] + dist_chd[k][b])
 
     for v in range(1, V + 1):
-        cnt_par = 0
-        cnt_chd = 0
-        for nxt in range(1, V + 1):
-            if
         print(len(list(filter(lambda x: 0 < x < INF, dist_par[v]))), end=' ')
         print(len(list(filter(lambda x: 0 < x < INF, dist_chd[v]))), end=' ')
         print()
