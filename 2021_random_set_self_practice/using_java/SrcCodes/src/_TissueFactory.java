@@ -11,7 +11,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class tissue_factory {
+public class TissueFactory {
 
     public static void main(String[] args) throws FileNotFoundException {
         System.setIn(new FileInputStream("input.txt"));

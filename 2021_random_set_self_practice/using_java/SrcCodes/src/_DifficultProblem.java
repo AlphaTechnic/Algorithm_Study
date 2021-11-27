@@ -2,7 +2,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class difficult_problem {
+public class DifficultProblem {
 
     public static void main(String[] args) throws FileNotFoundException {
         System.setIn(new FileInputStream("input.txt"));

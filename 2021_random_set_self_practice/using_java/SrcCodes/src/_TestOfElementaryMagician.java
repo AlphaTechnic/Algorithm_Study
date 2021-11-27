@@ -6,7 +6,7 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 
-public class test_of_elementary_magician {
+public class TestOfElementaryMagician {
 
     public static class Info {
         public int y;
