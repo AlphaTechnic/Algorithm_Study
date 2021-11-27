@@ -41,9 +41,10 @@ class Prisoner(object):
     def go(self):
         idx = 0
         while idx != len(self.seq) - 2:
-            if self.ccw(self.seq[idx], self.seq[idx + 1], self.seq[idx + 2]) == 1:
+            ret = self.ccw(self.seq[idx], self.seq[idx + 1], self.seq[idx + 2])
+            if ret == 1:
                 print("LEFT")
-            elif self.ccw(self.seq[idx], self.seq[idx + 1], self.seq[idx + 2]) == -1:
+            elif ret == -1:
                 print("RIGHT")
             else:
                 print("error")
