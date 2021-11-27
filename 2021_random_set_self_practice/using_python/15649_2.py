@@ -47,6 +47,6 @@ class Permutation(object):
 
 
 if __name__ == "__main__":
-    obj = Permutation()
-    obj.input()
-    obj.recur(0, [])
+    permutation = Permutation()
+    permutation.input()
+    permutation.recur(0, [])
