@@ -1,4 +1,4 @@
-class DFS(object):
+class Graph(object):
     def __init__(self, adj_list):
         self.adj_list = adj_list
         self.visited = [False for _ in range(len(adj_list))]
@@ -19,17 +19,14 @@ class DFS(object):
     def how_many_network(self):
         return self.scc_num
 
-    def __call__(self, cur):
-        return self.dfs(cur)
-
 
 def solution(n, adj_list):
-    dfs = DFS(adj_list)
+    graph = Graph(adj_list)
     for i in range(n):
-        if not dfs.visited_chk(i):
-            dfs(i)
-            dfs.network_cnt_up()
-    return dfs.how_many_network()
+        if not graph.visited_chk(i):
+            graph.dfs(i)
+            graph.network_cnt_up()
+    return graph.how_many_network()
 
 
 if __name__ == "__main__":
