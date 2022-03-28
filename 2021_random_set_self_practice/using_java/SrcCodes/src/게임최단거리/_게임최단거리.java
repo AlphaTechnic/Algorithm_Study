@@ -1,3 +1,5 @@
+package 게임최단거리;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -74,7 +76,8 @@ class Solution {
 
     public static void main(String[] args) {
         int[][] maps = {{1,0,1,1,1},{1,0,1,0,1},{1,0,1,1,1},{1,1,1,0,1},{0,0,0,0,1}};
-        Solution obj = new Solution();
-        System.out.println(obj.solution(maps));
+        Solution sol = new Solution();
+        System.out.println(sol.solution(maps));
     }
 }
+
