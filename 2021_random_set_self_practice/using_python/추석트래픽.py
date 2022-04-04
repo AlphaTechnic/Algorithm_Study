@@ -38,13 +38,18 @@ class LogAnalyzer(object):
         return not (end < log.start or start > log.end)
 
 
-def solution(lines):
+def mk_logs(lines):
     logs = []
     for line in lines:
         date, time, raw3 = line.split()
         end = datetime.strptime(f"{date} {time}", "%Y-%m-%d %H:%M:%S.%f")
         length = timedelta(seconds=float(raw3.split('s')[0]))
         logs.append(Log(end, length))
+    return logs
+
+
+def solution(lines):
+    logs = mk_logs(lines)
     return LogAnalyzer(logs).get_max_throughput_per_second()
 
 
